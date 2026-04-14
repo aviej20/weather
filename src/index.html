@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
+    <script type="module" src="./index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header class="header-wrapper">
+        <div class="logo-wrapper">
+        </div>
+        <div class="search-wrapper">
+            <form id="search-form">
+                <label for="city">Enter a city</label>
+                <input class="search-bar" type="search" id="city" name="city" aria-label="Search a city's weather" placeholder="Search a city" />
+                <button type="submit" class="btn--search" >Search</button>
+            </form>
+        </div>
+    </header>
+    <main class="weather-wrapper">
+        <div class="city-weather--day">
+        </div>
+
+        <div class="city-weather--arrow">
+            <a href="#week-weather">↓</a>
+        </div>
+
+        <div id="week-weather" class="city-weather--week">
+
+        </div>
+    </main>
+    <footer class="footer-wrapper">
+        <p>Created by: <a href="#">Alejandro Viejo</a></p>
+    </footer>
 </body>
 </html>
