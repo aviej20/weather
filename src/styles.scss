@@ -43,6 +43,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        height: 60vh;
         h2{
             align-self: flex-start;
             font-size: 2.5rem;
@@ -151,6 +152,7 @@
         .city-weather--day {
             text-align: center;
             gap: 1rem;
+            height: auto;
             h2{
                 font-size: 1.5rem;
             }
