@@ -5,6 +5,18 @@ const form = document.getElementById('search-form');
 
 let currentSlide = 0;
 
+function getSliderCardBound (){
+    const sliderWrapper = document.querySelector('.city-weather--week');
+    const weatherDayCards = document.querySelectorAll('.week-weather__day');
+    
+    const cardWidth = weatherDayCards[0].getBoundingClientRect().width;
+    const sliderWidth = sliderWrapper.offsetWidth;
+    const visibleCards = Math.max(1, Math.floor(sliderWidth / cardWidth));
+    const maxSlide = Math.max(0, weatherDayCards.length + 1 - visibleCards);
+
+    return maxSlide;
+}
+
 function nextSlide(direction){
     const divWrapper = document.querySelector('.week-weather--wrapper');
     const weatherCards = divWrapper.querySelectorAll('.week-weather__day');
@@ -12,18 +24,18 @@ function nextSlide(direction){
         if (!weatherCards.length) return;
 
         const cardWidth = weatherCards[0].offsetWidth;
-        const maxSlide = weatherCards.length -1;
 
-        if(direction === 'next' && currentSlide < maxSlide){
+        if(direction === 'next' && currentSlide < getSliderCardBound()){
             currentSlide++;
         }else if(direction === 'prev' && currentSlide > 0){
             currentSlide--;
         }
 
-        divWrapper.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+       const gap = parseFloat(window.getComputedStyle(divWrapper).gap);
+
+        divWrapper.style.transform = `translateX(-${currentSlide * (cardWidth + gap)}px)`;
 
 }
-
 
 function updateWeatherUI (weatherObject){
 
